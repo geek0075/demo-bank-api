@@ -8,8 +8,8 @@ import { CreateUserDto } from 'src/users/dto/create-user.dto';
 export class AuthService {
     constructor(private usersService: UsersService, private jwtService: JwtService) {}
 
-    async validateUser(email: string, pass: string): Promise<any> {
-        const user = await this.usersService.findOne(email);
+    async validateUser(phone: string, pass: string): Promise<any> {
+        const user = await this.usersService.findOne(phone);
         if (user && user.password === pass) {
             return user;
         }
