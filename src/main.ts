@@ -11,7 +11,6 @@ async function bootstrap() {
         .setTitle('Fictitious Banking Application API')
         .setDescription('Fictitious Banking Application API for the Veegil Fullstack Developer Assessment.')
         .setVersion('1.0')
-        .addTag('bank')
         .addBearerAuth()
         .build();
     const document = SwaggerModule.createDocument(app, config);
