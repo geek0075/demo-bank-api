@@ -238,23 +238,33 @@ https://vm-bank-api.herokuapp.com/api
             "balance":97316.01
         }...]
 
+## MongoDB Database Schema
+
+### Users
 
 | Name            | Datatype     | Default         | Size           |
 |-----------------|:-------------|:---------------:|---------------:|
-| _id             | String       |                 | variable       |
+| _id             | ObjectId     |                 | variable       |
 | fullName        | String       |                 | 50             |
 | phone           | String       |                 | 15             |
 | password        | String       |                 | 50             |
 
+### Accounts
 
-| Default aligned | Left aligned | Center aligned  | Right aligned  |
+| Name            | Datatype     | Default         | Size           |
 |-----------------|:-------------|:---------------:|---------------:|
-| First body part | Second cell  | Third cell      | fourth cell    |
-| Second line     | foo          | **strong**      | baz            |
-| Third line      | quux         | baz             | bar            |
-|-----------------+--------------+-----------------+----------------|
-| Second body     |              |                 |                |
-| 2nd line        |              |                 |                |
-|-----------------+--------------+-----------------+----------------|
-| Third body      |              |                 | Foo            |
+| _id             | ObjectId     |                 | variable       |
+| accountNo       | String       |                 | 15             |
+| balance         | Number       |                 | system         |
+
+### Transactions
+
+| Name            | Datatype     | Default         | Size           |
+|-----------------|:-------------|:---------------:|---------------:|
+| _id             | ObjectId     |                 | variable       |
+| accountNo       | String       |                 | 15             |
+| type            | String       |                 | variable       |
+| date            | Date         |                 | system         |
+| amount          | Number       |                 | system         |
+| balance         | Number       |                 | system         |
 
