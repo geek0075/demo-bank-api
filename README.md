@@ -238,6 +238,17 @@ https://vm-bank-api.herokuapp.com/api
             "balance":97316.01
         }...]
 
+
+| Name            | Datatype     | Default         | Size           |
+|-----------------|:-------------|:---------------:|---------------:|
+| _id             | String       |                 | variable       |
+| fullName        | String       |                 | 50             |
+| phone           | String       |                 | 15             |
+| password        | String       |                 | 50             |
+|-----------------+--------------+-----------------+----------------|
+| Third body      |              |                 | Foo            |
+
+
 | Default aligned | Left aligned | Center aligned  | Right aligned  |
 |-----------------|:-------------|:---------------:|---------------:|
 | First body part | Second cell  | Third cell      | fourth cell    |
@@ -248,6 +259,4 @@ https://vm-bank-api.herokuapp.com/api
 | 2nd line        |              |                 |                |
 |-----------------+--------------+-----------------+----------------|
 | Third body      |              |                 | Foo            |
-
-
 
