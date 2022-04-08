@@ -7,6 +7,7 @@ import { ApiBody, ApiCreatedResponse, ApiOkResponse } from '@nestjs/swagger';
 import { LoginUserDto } from './users/dto/login-user.dto';
 import { User } from './users/entities/user.entity';
 import { Token } from './users/entities/token.entity';
+import { Profile } from './users/entities/profile.entity';
 
 @Controller()
 export class AppController {
@@ -35,8 +36,8 @@ export class AppController {
     @UseGuards(JwtAuthGuard)
     @Get('profile')
     @ApiOkResponse({
-        description: 'The account was found successfully.',
-        type: User,
+        description: 'The profile was found successfully.',
+        type: Profile,
     })
     getProfile(@Request() req) {
         return req.user;
