@@ -240,6 +240,8 @@ https://vm-bank-api.herokuapp.com/api
 
 ## MongoDB Database Schema
 
+The API depends on a MongoDB database hosted in the cloud at mongodb.com. This MongoDB database has the following three schemas (Users, Accounts, and Transactions) which are used to represent entities in our Banking API application.
+
 ### Users
 
 | Name            | Datatype     | Default         | Size           |
