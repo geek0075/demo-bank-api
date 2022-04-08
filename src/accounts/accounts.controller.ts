@@ -4,6 +4,8 @@ import { CreateAccountDto } from './dto/create-account.dto';
 import { PartialTransactAccountDto } from './dto/partial-transact-account.dto';
 import { TransactAccountDto } from './dto/transact-account.dto';
 import { AccountsService } from './accounts.service';
+import { ApiCreatedResponse, ApiOkResponse } from '@nestjs/swagger';
+import { Account } from './entities/account.entity';
 
 @Controller('accounts')
 export class AccountsController {
@@ -11,6 +13,10 @@ export class AccountsController {
 
     @UseGuards(JwtAuthGuard)
     @Post('deposit')
+    @ApiCreatedResponse({
+        description: 'The deposit has been successfully created.',
+        type: Account,
+    })
     deposit(@Request() req, @Body() transactAccountDto: PartialTransactAccountDto) {
         const accountDto = new TransactAccountDto(req.user.phone, transactAccountDto.amount)
         return this.accountsService.deposit(accountDto);
@@ -18,6 +24,10 @@ export class AccountsController {
 
     @UseGuards(JwtAuthGuard)
     @Post('withdraw')
+    @ApiCreatedResponse({
+        description: 'The withdraw has been successfully created.',
+        type: Account,
+    })
     withdraw(@Request() req, @Body() transactAccountDto: PartialTransactAccountDto) {
         const accountDto = new TransactAccountDto(req.user.phone, transactAccountDto.amount)
         return this.accountsService.withdraw(accountDto);
@@ -25,6 +35,10 @@ export class AccountsController {
 
     @UseGuards(JwtAuthGuard)
     @Get()
+    @ApiOkResponse({
+        description: 'The account has been found successfully.',
+        type: Account,
+    })
     findOne(@Request() req) {
         return this.accountsService.findOne(req.user.phone);
     }
