@@ -14,7 +14,7 @@ export class AccountsController {
     @UseGuards(JwtAuthGuard)
     @Post('deposit')
     @ApiCreatedResponse({
-        description: 'The deposit has been successfully created.',
+        description: 'The deposit completed successfully.',
         type: Account,
     })
     deposit(@Request() req, @Body() transactAccountDto: PartialTransactAccountDto) {
@@ -25,7 +25,7 @@ export class AccountsController {
     @UseGuards(JwtAuthGuard)
     @Post('withdraw')
     @ApiCreatedResponse({
-        description: 'The withdraw has been successfully created.',
+        description: 'The withdraw completed successfully.',
         type: Account,
     })
     withdraw(@Request() req, @Body() transactAccountDto: PartialTransactAccountDto) {
@@ -36,7 +36,7 @@ export class AccountsController {
     @UseGuards(JwtAuthGuard)
     @Get()
     @ApiOkResponse({
-        description: 'The account has been found successfully.',
+        description: 'The account was found successfully.',
         type: Account,
     })
     findOne(@Request() req) {

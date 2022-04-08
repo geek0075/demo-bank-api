@@ -11,7 +11,7 @@ export class TransactionsController {
     @UseGuards(JwtAuthGuard)
     @Get()
     @ApiOkResponse({
-        description: 'The transactions have been found successfully.',
+        description: 'The transactions were found successfully.',
         type: [Transaction],
     })
     findAll(@Request() req) {
