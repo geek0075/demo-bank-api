@@ -22,68 +22,95 @@ https://vm-bank-api.herokuapp.com/api
 02. When you have API running then you may issue the following curl commands.
     
     01. POST to /auth/register
+
         command (please change phone and pass in command below)
+
         $ curl -X POST https://vm-bank-api.herokuapp.com/auth/register -d '{
             "fullName": "Kayode Taiwo", 
             "phone": "0763339012", 
             "password": "kayode"
         }' -H "Content-Type: application/json"
+
         response
+
         {"fullName":"Kayode Taiwo","phone":"0763339012","_id":"624df1ffef310b5d4ac98bdd","__v":0}
 
     02. POST /auth/login
     
         command (please change phone and pass in command below)
+
         $ curl -X POST https://vm-bank-api.herokuapp.com/auth/login -d '{
             "phone": "0822340967", 
             "password": "tunde"
         }' -H "Content-Type: application/json"
+
         response
+
         {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJwaG9uZSI6IjA4MjIzNDA5NjciLCJzdWIiOiI2MjRkZjFhZGVmMzEwY
         jVkNGFjOThiZDkiLCJpYXQiOjE2NDkyNzU0NDMsImV4cCI6MTY0OTI4MTQ0M30.oTJvuiu7VGs5ec-6d9Jg2u0g9Roef2rfDRgU5edhdgE"}
 
     03. GET /profile
+
         command (please use access token returned from step 02 above)
+
         $ curl http://localhost:3000/profile -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJwaG9uZSI6IjA
         4MjIzNDA5NjciLCJzdWIiOiI2MjRkZjFhZGVmMzEwYjVkNGFjOThiZDkiLCJpYXQiOjE2NDkyNzU0
         NDMsImV4cCI6MTY0OTI4MTQ0M30.oTJvuiu7VGs5ec-6d9Jg2u0g9Roef2rfDRgU5edhdgE"
+
         response
+
         {"_id":"hiu77uyguyjkhj", "phone":"0821340987"}
 
     04. GET /accounts
+
         command (please use access token returned from step 02 above)
+
         $ curl http://localhost:3000/accounts -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJwaG9uZSI6IjA
         4MjIzNDA5NjciLCJzdWIiOiI2MjRkZjFhZGVmMzEwYjVkNGFjOThiZDkiLCJpYXQiOjE2NDkyNzU0
         NDMsImV4cCI6MTY0OTI4MTQ0M30.oTJvuiu7VGs5ec-6d9Jg2u0g9Roef2rfDRgU5edhdgE"
+
         response
+
         {"_id":"624d1eded22480aae9d83530","accountNo":"0712348765","balance":0,"__v":0}
 
     05. POST /accounts/deposit
+
         command (please use access token returned from step 02 above)
+
         $ curl -X POST http://localhost:3000/accounts/deposit -d '{
             "amount": 200
         }' -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJwaG9uZSI6IjA
         4MjIzNDA5NjciLCJzdWIiOiI2MjRkZjFhZGVmMzEwYjVkNGFjOThiZDkiLCJpYXQiOjE2NDkyNzU0
         NDMsImV4cCI6MTY0OTI4MTQ0M30.oTJvuiu7VGs5ec-6d9Jg2u0g9Roef2rfDRgU5edhdgE"
+
         response
+
         {"_id":"624d1eded22480aae9d83530","accountNo":"0712348765","balance":200,"__v":0}
 
     06. POST /accounts/withdraw
+
         command (please use access token returned from step 02 above)
+
         $ curl -X POST http://localhost:3000/accounts/withdraw -d '{
             "amount": 50
         }' -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJwaG9uZSI6IjA
         4MjIzNDA5NjciLCJzdWIiOiI2MjRkZjFhZGVmMzEwYjVkNGFjOThiZDkiLCJpYXQiOjE2NDkyNzU0
         NDMsImV4cCI6MTY0OTI4MTQ0M30.oTJvuiu7VGs5ec-6d9Jg2u0g9Roef2rfDRgU5edhdgE"
+
         response
+
         {"_id":"624d1eded22480aae9d83530","accountNo":"0712348765","balance":150,"__v":0}
 
     07. GET /transactions
+
         command (please use access token returned from step 02 above)
+
         $ curl http://localhost:3000/transactions -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJwaG9u
         ZSI6IjA4MjIzNDA5NjciLCJzdWIiOiI2MjRkZjFhZGVmMzEwYjVkNGFjOThiZDkiLCJpYXQiOjE2NDkyNzU0
         NDMsImV4cCI6MTY0OTI4MTQ0M30.oTJvuiu7VGs5ec-6d9Jg2u0g9Roef2rfDRgU5edhdgE"
+
         response
+        
         [{
             "_id":"62501f0621b235e022ef8cd4",
             "accountNo":"0763339012",
