@@ -4,4 +4,5 @@ export class Transaction {
     readonly type: string;
     readonly date: Date;
     readonly amount: number;
+    readonly balance: number;
 }

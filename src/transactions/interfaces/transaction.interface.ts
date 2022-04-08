@@ -5,4 +5,5 @@ export interface TransactionDocument extends Document {
     readonly type: string;
     readonly date: Date;
     readonly amount: number;
+    readonly balance: number;
 }
