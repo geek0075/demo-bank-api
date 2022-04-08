@@ -5,9 +5,9 @@ import { AuthService } from './auth/auth.service';
 import { CreateUserDto } from './users/dto/create-user.dto';
 import { ApiBearerAuth, ApiBody, ApiCreatedResponse, ApiOkResponse } from '@nestjs/swagger';
 import { LoginUserDto } from './users/dto/login-user.dto';
-import { User } from './users/entities/user.entity';
 import { Token } from './users/entities/token.entity';
 import { Profile } from './users/entities/profile.entity';
+import { PartialUser } from './users/entities/partial-user.entity';
 
 @Controller()
 export class AppController {
@@ -16,7 +16,7 @@ export class AppController {
     @Post('auth/register')
     @ApiCreatedResponse({
         description: 'The sign up completed successfully.',
-        type: User,
+        type: PartialUser,
     })
     async register(@Body() createUserDto: CreateUserDto) {
         return this.authService.register(createUserDto);
