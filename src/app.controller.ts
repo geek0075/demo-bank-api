@@ -3,7 +3,7 @@ import { LocalAuthGuard } from './auth/local-auth.guard';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
 import { AuthService } from './auth/auth.service';
 import { CreateUserDto } from './users/dto/create-user.dto';
-import { ApiBody, ApiCreatedResponse, ApiOkResponse } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiBody, ApiCreatedResponse, ApiOkResponse } from '@nestjs/swagger';
 import { LoginUserDto } from './users/dto/login-user.dto';
 import { User } from './users/entities/user.entity';
 import { Token } from './users/entities/token.entity';
@@ -33,6 +33,7 @@ export class AppController {
         return this.authService.login(req.user);
     }
 
+    @ApiBearerAuth()
     @UseGuards(JwtAuthGuard)
     @Get('profile')
     @ApiOkResponse({

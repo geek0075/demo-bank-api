@@ -4,9 +4,10 @@ import { CreateAccountDto } from './dto/create-account.dto';
 import { PartialTransactAccountDto } from './dto/partial-transact-account.dto';
 import { TransactAccountDto } from './dto/transact-account.dto';
 import { AccountsService } from './accounts.service';
-import { ApiCreatedResponse, ApiOkResponse } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiCreatedResponse, ApiOkResponse } from '@nestjs/swagger';
 import { Account } from './entities/account.entity';
 
+@ApiBearerAuth()
 @Controller('accounts')
 export class AccountsController {
     constructor(private readonly accountsService: AccountsService) {}
