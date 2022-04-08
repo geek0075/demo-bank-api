@@ -12,11 +12,14 @@ export class CreateTransactionDto {
     readonly date: Date;
     @IsNumber()
     readonly amount: number;
+    @IsNumber()
+    readonly balance: number;
     
-    constructor(accountNo: string, type: string, date: Date, amount: number)     {
+    constructor(accountNo: string, type: string, date: Date, amount: number, balance: number)     {
         this.accountNo = accountNo;
         this.type = type;
         this.date = date;
         this.amount = amount;
+        this.balance = balance;
     }
 }

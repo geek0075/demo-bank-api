@@ -50,7 +50,7 @@ export class AccountsService {
             const newBalance = account.balance + transactAccountDto.amount;
             const newAccount = await this.accountModel.findOneAndUpdate({ accountNo: transactAccountDto.accountNo }, { balance: newBalance }, {new: true, session: session}).exec();
             console.log(`AccountsService.deposit: newAccount => ${JSON.stringify(newAccount)}`)
-            const createTransactionDto: CreateTransactionDto = new CreateTransactionDto(transactAccountDto.accountNo, 'deposit', new Date(), transactAccountDto.amount);
+            const createTransactionDto: CreateTransactionDto = new CreateTransactionDto(transactAccountDto.accountNo, 'deposit', new Date(), transactAccountDto.amount, newBalance);
             const transaction = await this.transactionsService.create(createTransactionDto, session);
             console.log(`AccountsService.deposit: transaction => ${JSON.stringify(transaction)}`)
             await session.commitTransaction();
@@ -75,7 +75,7 @@ export class AccountsService {
             const newBalance = account.balance - transactAccountDto.amount;
             const newAccount = await this.accountModel.findOneAndUpdate({ accountNo: transactAccountDto.accountNo }, { balance: newBalance }, {new: true, session: session}).exec();
             console.log(`AccountsService.withdraw: newAccount => ${JSON.stringify(newAccount)}`)
-            const createTransactionDto: CreateTransactionDto = new CreateTransactionDto(transactAccountDto.accountNo, 'withdraw', new Date(), transactAccountDto.amount);
+            const createTransactionDto: CreateTransactionDto = new CreateTransactionDto(transactAccountDto.accountNo, 'withdraw', new Date(), transactAccountDto.amount, newBalance);
             const transaction = await this.transactionsService.create(createTransactionDto, session);
             console.log(`AccountsService.withdraw: transaction => ${JSON.stringify(transaction)}`)
             await session.commitTransaction();
