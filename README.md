@@ -1,57 +1,87 @@
 ## Kayode Taiwo
 
-Fictitious banking application API.
+Fictitious banking application API. This application was generated with the NestJS CLI and is an NodeJS (www.nestjs.com) application that has been deployed to the following url on Heroku:
 
 https://vm-bank-api.herokuapp.com/
 
+With Swagger description of the API available online also at:
+
 https://vm-bank-api.herokuapp.com/api
 
-## Description
+## How to run the API locally from Source
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+01. Clone the app to a folder on your local computer, say vm-bank-api.
+02. Navigate to the local folder by running, $ cd vm-bank-api.
+03. Run the following command, $ npm install.
+04. Run the following command, $ npm run start.
+05. The API is now available at http://localhost:3000 on your local computer and you can test with curl or postman.
 
-## Installation
+## How to test the API locally with Curl
 
-```bash
-$ npm install
-```
+01. Proceed as described above in 'How to run the API locally from Source'.
+02. When you have API running then you may issue the following curl commands.
+    
+    01. POST to /auth/register
+        command (please change phone and pass in command below)
+        $ curl -X POST https://vm-bank-api.herokuapp.com/auth/register -d '{
+            "fullName": "Kayode Taiwo", 
+            "phone": "0763339012", 
+            "password": "kayode"
+        }' -H "Content-Type: application/json"
+        response
+        {"fullName":"Kayode Taiwo","phone":"0763339012","_id":"624df1ffef310b5d4ac98bdd","__v":0}
 
-## Running the app
+    02. POST /auth/login
+        command (please change phone and pass in command below)
+        $ curl -X POST https://vm-bank-api.herokuapp.com/auth/login -d '{
+            "phone": "0822340967", 
+            "password": "tunde"
+        }' -H "Content-Type: application/json"
+        response
+        {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJwaG9uZSI6IjA4MjIzNDA5NjciLCJzdWIiOiI2MjRkZjFhZGVmMzEwY
+        jVkNGFjOThiZDkiLCJpYXQiOjE2NDkyNzU0NDMsImV4cCI6MTY0OTI4MTQ0M30.oTJvuiu7VGs5ec-6d9Jg2u0g9Roef2rfDRgU5edhdgE"}
 
-```bash
-# development
-$ npm run start
+    03. GET /profile
+        command (please use access token returned from step 02 above)
+        $ curl http://localhost:3000/profile -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJwaG9uZSI6IjA
+        4MjIzNDA5NjciLCJzdWIiOiI2MjRkZjFhZGVmMzEwYjVkNGFjOThiZDkiLCJpYXQiOjE2NDkyNzU0
+        NDMsImV4cCI6MTY0OTI4MTQ0M30.oTJvuiu7VGs5ec-6d9Jg2u0g9Roef2rfDRgU5edhdgE"
+        response
+        {"_id":"hiu77uyguyjkhj", "phone":"0821340987"}
 
-# watch mode
-$ npm run start:dev
+    04. GET /accounts
+        command (please use access token returned from step 02 above)
+        $ curl http://localhost:3000/accounts -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJwaG9uZSI6IjA
+        4MjIzNDA5NjciLCJzdWIiOiI2MjRkZjFhZGVmMzEwYjVkNGFjOThiZDkiLCJpYXQiOjE2NDkyNzU0
+        NDMsImV4cCI6MTY0OTI4MTQ0M30.oTJvuiu7VGs5ec-6d9Jg2u0g9Roef2rfDRgU5edhdgE"
+        response
+        {"_id":"624d1eded22480aae9d83530","accountNo":"0712348765","balance":0,"__v":0}
 
-# production mode
-$ npm run start:prod
-```
+    05. POST /accounts/deposit
+        command (please use access token returned from step 02 above)
+        $ curl -X POST http://localhost:3000/accounts/deposit -d '{
+            "amount": 200
+        }' -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJwaG9uZSI6IjA
+        4MjIzNDA5NjciLCJzdWIiOiI2MjRkZjFhZGVmMzEwYjVkNGFjOThiZDkiLCJpYXQiOjE2NDkyNzU0
+        NDMsImV4cCI6MTY0OTI4MTQ0M30.oTJvuiu7VGs5ec-6d9Jg2u0g9Roef2rfDRgU5edhdgE"
+        response
+        {"_id":"624d1eded22480aae9d83530","accountNo":"0712348765","balance":200,"__v":0}
 
-## Test
+    06. POST /accounts/withdraw
+        command (please use access token returned from step 02 above)
+        $ curl -X POST http://localhost:3000/accounts/withdraw -d '{
+            "amount": 50
+        }' -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJwaG9uZSI6IjA
+        4MjIzNDA5NjciLCJzdWIiOiI2MjRkZjFhZGVmMzEwYjVkNGFjOThiZDkiLCJpYXQiOjE2NDkyNzU0
+        NDMsImV4cCI6MTY0OTI4MTQ0M30.oTJvuiu7VGs5ec-6d9Jg2u0g9Roef2rfDRgU5edhdgE"
+        response
+        {"_id":"624d1eded22480aae9d83530","accountNo":"0712348765","balance":150,"__v":0}
 
-```bash
-# unit tests
-$ npm run test
+    07. GET /transactions
+        command (please use access token returned from step 02 above)
+        $ curl http://localhost:3000/transactions -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJwaG9u
+        ZSI6IjA4MjIzNDA5NjciLCJzdWIiOiI2MjRkZjFhZGVmMzEwYjVkNGFjOThiZDkiLCJpYXQiOjE2NDkyNzU0
+        NDMsImV4cCI6MTY0OTI4MTQ0M30.oTJvuiu7VGs5ec-6d9Jg2u0g9Roef2rfDRgU5edhdgE"
+        response
 
-# e2e tests
-$ npm run test:e2e
 
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
