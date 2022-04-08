@@ -83,5 +83,20 @@ https://vm-bank-api.herokuapp.com/api
         ZSI6IjA4MjIzNDA5NjciLCJzdWIiOiI2MjRkZjFhZGVmMzEwYjVkNGFjOThiZDkiLCJpYXQiOjE2NDkyNzU0
         NDMsImV4cCI6MTY0OTI4MTQ0M30.oTJvuiu7VGs5ec-6d9Jg2u0g9Roef2rfDRgU5edhdgE"
         response
+        [{
+            "_id":"62501f0621b235e022ef8cd4",
+            "accountNo":"0763339012",
+            "type":"withdraw",
+            "date":"2022-04-08T11:39:50.912Z",
+            "amount":3277.67,
+            "balance":94038.34
+        },{
+            "_id":"62501ef421b235e022ef8ccf",
+            "accountNo":"0763339012",
+            "type":"deposit",
+            "date":"2022-04-08T11:39:32.143Z",
+            "amount":50,
+            "balance":97316.01
+        }...]
 
 
