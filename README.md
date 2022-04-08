@@ -245,8 +245,6 @@ https://vm-bank-api.herokuapp.com/api
 | fullName        | String       |                 | 50             |
 | phone           | String       |                 | 15             |
 | password        | String       |                 | 50             |
-|-----------------+--------------+-----------------+----------------|
-| Third body      |              |                 | Foo            |
 
 
 | Default aligned | Left aligned | Center aligned  | Right aligned  |
