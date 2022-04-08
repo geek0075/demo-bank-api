@@ -12,7 +12,7 @@ export class AppController {
     async register(@Body() createUserDto: CreateUserDto) {
         return this.authService.register(createUserDto);
     }
-  
+
     @UseGuards(LocalAuthGuard)
     @Post('auth/login')
     async login(@Request() req) {
