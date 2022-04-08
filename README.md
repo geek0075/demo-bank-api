@@ -2,17 +2,17 @@
 
 Fictitious banking application API. This application was generated with the NestJS CLI and is an NodeJS (www.nestjs.com) application that has been deployed to the following url on Heroku:
 
-[https://vm-bank-api.herokuapp.com/](https://vm-bank-api.herokuapp.com/){:target="_blank"}
+[https://vm-bank-api.herokuapp.com/](https://vm-bank-api.herokuapp.com/)
 
 With Swagger description of the API available online also at:
 
-[https://vm-bank-api.herokuapp.com/api/](https://vm-bank-api.herokuapp.com/api/){:target="_blank"}
+[https://vm-bank-api.herokuapp.com/api/](https://vm-bank-api.herokuapp.com/api/)
 
 ## API Documentation
 
 The API is adequately documented by it's Swagger UI here:
 
-[https://vm-bank-api.herokuapp.com/api/](https://vm-bank-api.herokuapp.com/api/){:target="_blank"}
+[https://vm-bank-api.herokuapp.com/api/](https://vm-bank-api.herokuapp.com/api/)
 
 Please read the Swagger UI for details on the endpoints and their methods and parameters.
 
