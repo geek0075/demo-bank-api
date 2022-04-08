@@ -8,6 +8,14 @@ With Swagger description of the API available online also at:
 
 https://vm-bank-api.herokuapp.com/api
 
+## API Documentation
+
+The API is adequately documented by it's Swagger UI here:
+
+https://vm-bank-api.herokuapp.com/api
+
+Please read the Swagger UI for details on the endpoints and their methods and parameters.
+
 ## How to run the API locally from Source
 
 01. Clone the app to a folder on your local computer, say vm-bank-api.
@@ -270,3 +278,8 @@ The API depends on a MongoDB database hosted in the cloud at mongodb.com. This M
 | amount          | Number       |                 | system         |
 | balance         | Number       |                 | system         |
 
+## Stay in touch
+
+Kayode Taiwo - kay_taylor@outlook.com.
+
+Please send your comments and questions to me at the email above. Thank you and God bless.
