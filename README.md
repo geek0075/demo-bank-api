@@ -32,6 +32,7 @@ https://vm-bank-api.herokuapp.com/api
         {"fullName":"Kayode Taiwo","phone":"0763339012","_id":"624df1ffef310b5d4ac98bdd","__v":0}
 
     02. POST /auth/login
+    
         command (please change phone and pass in command below)
         $ curl -X POST https://vm-bank-api.herokuapp.com/auth/login -d '{
             "phone": "0822340967", 
