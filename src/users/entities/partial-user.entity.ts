@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class User {
+export class PartialUser {
     @ApiProperty({
         description: 'The mongodb ObjectId of the user.',
         required: true,
@@ -19,10 +19,4 @@ export class User {
         type: String,
     })
     readonly phone: string;
-    @ApiProperty({
-        description: 'The password of the user.',
-        required: true,
-        type: String,
-    })
-    password: string;
 }
